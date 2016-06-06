@@ -1,0 +1,22 @@
+{
+  "name": "instamap.ph",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Ted Mathew dela Cruz <tedmdelacruz@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.1.1"
+  }
+}
