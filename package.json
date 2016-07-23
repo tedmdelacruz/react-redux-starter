@@ -1,6 +1,6 @@
 {
-  "name": "instamap.ph",
-  "version": "1.0.0",
+  "name": "react-redux-starter",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
