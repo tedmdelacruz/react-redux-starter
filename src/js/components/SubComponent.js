@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 
-export class SubComponent extends Component {
+export default class SubComponent extends Component {
+    constructor(props) {
+        super()
+        this.handleFetch = props.handleFetch
+    }
 
     render() {
-        const { fetchData, data } = this.props
-
-        function handleFetch() {
-            fetchData()
-        }
+        const { data, isLoading } = this.props
 
         return (
             <div>
-                <div>
-                    <code>Data: { data }</code>
+                <button onClick={this.handleFetch.bind(this)}>
+                    {isLoading ? 'Fetching...' : 'Fetch data'}
+                </button>
+                <div className="data-container">
+                    <code>{data}</code>
                 </div>
-                <button onClick={ handleFetch }>Fetch Data</button>
             </div>
         ) 
     }

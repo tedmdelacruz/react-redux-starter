@@ -1,18 +1,21 @@
+import update from 'immutability-helper'
 import { RETRIEVE_DATA, RECEIVE_DATA } from './actions'
 
-export function reducer(state = {
+const initialState = {
     data: '',
-    isFetching: false
-}, action) {
-    switch(action.type) {
+    isLoading: false
+}
+
+export default function reducer(state = initialState, action) {
+    switch (action.type) {
         case RETRIEVE_DATA:
-            return Object.assign({}, state, {
-                isFetching: true
+            return update(state, {
+                isLoading: { $set: true }
             })
         case RECEIVE_DATA:
-            return Object.assign({}, state, {
-                isFetching: false,
-                data: action.data
+            return update(state, {
+                isLoading: { $set: false },
+                data: { $set: action.data }
             })
         default:
             return state

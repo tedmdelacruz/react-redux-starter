@@ -27,7 +27,7 @@ gulp.task('scss:watch', function () {
 });
 
 function compile(isWatch) {
-    var bundler = watchify(browserify(paths.js + '/app.js', { debug: true }))
+    var bundler = watchify(browserify(paths.js + '/index.js', { debug: true }))
         .transform(babelify);
 
     function rebundle() {

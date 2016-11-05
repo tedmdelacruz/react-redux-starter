@@ -8,10 +8,10 @@ function retrieveData() {
 }
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
-function receiveData(data) {
+function receiveData(response) {
     return {
         type: RECEIVE_DATA,
-        data
+        data: response.message
     }
 }
 
@@ -19,10 +19,12 @@ export const FETCH_DATA = 'FETCH_DATA'
 export function fetchData() {
     return dispatch => {
         dispatch(retrieveData())
-        return axios.get('/data.json')
-            .then(response => {
-                dispatch(receiveData(response.data))
-            })
+        setTimeout(() => {
+            return axios.get('/data.json')
+                .then(response => {
+                    dispatch(receiveData(response.data))
+                })
+        }, 1000)
     }
 }
 
