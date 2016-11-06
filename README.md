@@ -4,9 +4,7 @@ Personal bootstrap kit for jumpstarting React + Redux projects
 
 ```
 > yarn
-> bower install
-> gulp [watch|js|scss|js:watch|scss:watch]
-> http-serve
+> npm run start
 ```
 
 Features:
