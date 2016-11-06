@@ -1,12 +1,15 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
-    entry: "./src/js/index.js",
+    entry: {
+        index: "./src/js/index.js",
+    },
     output: {
         path: __dirname,
         filename: "./js/app.js"
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" },
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
@@ -14,7 +17,17 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react']
                 }
-            }
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract(
+                    'style', 
+                    'css!sass' 
+                )
+            },
         ]
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin('./css/app.css'),
+    ],
 };

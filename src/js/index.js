@@ -7,6 +7,8 @@ import { Provider } from 'react-redux'
 import reducer from './reducer'
 import App from './containers/App'
 
+require('!style!css!sass!../scss/styles.scss')
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
     reducer,
@@ -20,4 +22,4 @@ render(
         <App />
     </Provider>,
     document.getElementById('app')
-);
+)
