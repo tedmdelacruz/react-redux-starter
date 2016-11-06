@@ -8,7 +8,6 @@ export default class SubComponent extends Component {
 
     render() {
         const { data, isLoading } = this.props
-        debugger
 
         return (
             <div>
