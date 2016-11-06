@@ -1,9 +1,13 @@
+var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: {
-        index: "./src/js/index.js",
-    },
+    entry: [
+        'webpack-hot-middleware/client',
+        'webpack/hot/dev-server',
+        "./src/js/index.js",
+    ],
     output: {
         path: __dirname,
         filename: "./js/app.js"
@@ -13,10 +17,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                loader: 'babel'
             },
             {
                 test: /\.scss$/,
@@ -29,6 +30,7 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('./css/app.css'),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devtool: 'eval-source-map'
 };
