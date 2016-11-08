@@ -5,19 +5,20 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: [
         'webpack-hot-middleware/client',
-        'webpack/hot/dev-server',
         "./src/js/index.js",
     ],
     output: {
-        path: __dirname,
-        filename: "./js/app.js"
+        path: path.join(__dirname, 'public'),
+        filename: "app.js",
+        publicPath: "/js/"
     },
     module: {
         loaders: [
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel'
+                loaders: ['react-hot', 'babel'],
+                include: path.join(__dirname, 'src/js')
             },
             {
                 test: /\.scss$/,
