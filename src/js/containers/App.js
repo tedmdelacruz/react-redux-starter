@@ -8,5 +8,3 @@ const App = () => (
 )
 
 export default App
-
-module.hot.accept()
