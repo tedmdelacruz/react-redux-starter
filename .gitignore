@@ -1,5 +1,3 @@
 node_modules/
-bower_components/
-css/styles.css
-js/app.js
+public/js/app.js
 
